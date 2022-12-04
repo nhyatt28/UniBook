@@ -20,6 +20,9 @@
     <Content Remove="wwwroot\images\banner_supplied.jpg" />
     <Content Remove="wwwroot\images\book-1_supplied.jpg" />
     <Content Remove="wwwroot\images\book-2_supplied.jpg" />
+    <Content Remove="wwwroot\images\down-arrow-dark.svg" />
+    <Content Remove="wwwroot\images\down-arrow-white.svg" />
+    <Content Remove="wwwroot\images\down-arrow.svg" />
     <Content Remove="wwwroot\images\footer-bg_supplied.jpg" />
     <Content Remove="wwwroot\images\Library-supplied.jpg" />
     <Content Remove="wwwroot\images\loading.gif" />
@@ -61,6 +64,9 @@
     <None Include="wwwroot\images\banner_supplied.jpg" />
     <None Include="wwwroot\images\book-1_supplied.jpg" />
     <None Include="wwwroot\images\book-2_supplied.jpg" />
+    <None Include="wwwroot\images\down-arrow-dark.svg" />
+    <None Include="wwwroot\images\down-arrow-white.svg" />
+    <None Include="wwwroot\images\down-arrow.svg" />
     <None Include="wwwroot\images\footer-bg_supplied.jpg" />
     <None Include="wwwroot\images\Library-supplied.jpg" />
     <None Include="wwwroot\images\loading.gif" />
