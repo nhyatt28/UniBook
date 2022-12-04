@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32002.261
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Import_CSS_TEST", "Import_CSS_TEST\Import_CSS_TEST.csproj", "{93DECCA8-FA85-4A63-B921-D5BC1CF0275C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{93DECCA8-FA85-4A63-B921-D5BC1CF0275C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93DECCA8-FA85-4A63-B921-D5BC1CF0275C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93DECCA8-FA85-4A63-B921-D5BC1CF0275C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93DECCA8-FA85-4A63-B921-D5BC1CF0275C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {62A985B3-B049-486D-A81B-1D2AC6232585}
+	EndGlobalSection
+EndGlobal

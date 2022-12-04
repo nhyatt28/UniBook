@@ -1,0 +1,60 @@
+﻿@model Calculator.Models.AddModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+
+
+<form name="Calculate">
+
+    <div>
+
+        <h1 class="input-number1">
+        
+        Input # 1 
+
+        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+        
+        Input # 2</h1>
+
+    </div>
+
+
+
+    <div class="input-field">
+        <input 
+               name="Number1" type="text" class="input1"/>
+        
+        &emsp;&emsp;&emsp;
+        
+        <input 
+               name="Number2" type="text" class="input2" /><br />
+    </div>
+
+
+
+    <div class="buttons">
+        <button name="Calculate" value="Add" type="submit" class="add-button" onclick="location.href='@Url.Action("Index", "HomeController")'">+</button>
+        <button name="Calculate" value="Subtract" type="submit" class="subtract-button">-</button>
+        <button name="Calculate" value="Divide" type="submit" class="divide-button">÷</button>
+        <button name="Calculate" value="Multiply" type="submit" class="multiply-button">x</button>
+    </div>
+
+    
+    <div>
+        
+        <output class="output"name="Result" for="Add" >The Result is: @Model.Result  </output>
+    </div>
+
+</form>
+
+
+
+    
+
+

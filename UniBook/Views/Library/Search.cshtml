@@ -1,0 +1,201 @@
+﻿@model List<UniBook.Models.Textbook>
+
+@{
+    Layout = "~/Views/Shared/SearchLayout.cshtml";
+}
+
+<section>
+
+    <div>
+        @if (ViewData["ErrorMessage"] != null)
+        {
+            List<string>
+                errorList = ViewData["ErrorMessage"] as List<string>
+                    ;
+            if (errorList.Count() > 0)
+            {
+                <div class="alert alert-danger" role="alert" style="width:100%;">
+                    <ul>
+                        @foreach (var currentError in errorList)
+                        {
+                            <li>@currentError</li>
+                        }
+                    </ul>
+                </div>
+            }
+        }
+        @if (ViewData["SuccessMessage"] != null)
+        {
+            List<string>
+                successMessage = ViewData["SuccessMessage"] as List<string>
+                    ;
+            if (successMessage.Count() > 0)
+            {
+                <div class="alert alert-success" role="alert" style="width:100%;">
+                    <ul>
+                        @foreach (var msg in successMessage)
+                        {
+                            <li>@msg</li>
+                        }
+                    </ul>
+                </div>
+            }
+        }
+    <form class="student-profile-form" id="SearchForm" method="post" action="" novalidate="novalidate">
+
+
+        <div class="center">
+
+            <div class="student">
+
+                <div class="form-text">
+                    <label for="StudentProfile" class="heading3"><b>Search Textbooks:</b></label>
+                </div>
+
+                <div class="row">
+                 
+                    <div class="col-xl-6">
+
+                        <label for="StudentID" class="col-form-label-lg"><b>TextbookID:</b></label>
+                        <input type="text" class="form-control" name="BookID" id="BookID" placeholder="Search TextbookID" maxlength="25">
+
+                    </div>
+
+                    <div class="col-xl-6">
+
+                        <label for="StudentID" class="col-form-label-lg"><b>ISBN #:</b></label>
+                        <input type="text" class="form-control" name="ISBN" id="ISBN" placeholder="Search ISBN #" maxlength="25">
+
+                    </div>
+
+                    <div class="col-xl-6">
+
+                        <label for="StudentID" class="col-form-label-lg"><b>Title:</b></label>
+                        <input type="text" class="form-control" name="Title" id="Title" placeholder="Search Last Name" maxlength="25">
+
+                    </div>
+
+                    <div class="col-xl-6">
+
+                        <label for="StudentID" class="col-form-label-lg"><b>Description:</b></label>
+                        <input type="text" class="form-control" name="Description" id="Description" placeholder="Search Description" maxlength="25">
+
+                    </div>
+
+                    <div class="col-xl-6">
+
+                        <label for="StudentID" class="col-form-label-lg"><b>Publisher:</b></label>
+                        <input type="text" class="form-control" name="Publisher" id="Publisher" placeholder="Search Publisher" maxlength="25">
+
+                    </div>
+
+                    <div class="col-xl-6">
+                        <label for="StudentID" class="col-form-label-lg"><b>Author:</b></label>
+                        <input type="text" class="form-control" name="Author" id="Author" placeholder="Search Author" maxlength="25">
+
+                    </div>
+
+                    <div class="col-xl-6">
+
+                        <label for="StudentID" class="col-form-label-lg"><b>Edition:</b></label>
+                        <input type="text" class="form-control" name="Edition" id="Edition" placeholder="Search Edition" maxlength="25">
+
+                    </div>
+
+                   
+                    <div class="col-xl-6">
+                        <label for="StudentID" class="col-form-label-lg"><b>Condition:</b></label>
+                        <input type="text" class="form-control" name="Condition" id="Condition" placeholder="Search Condition" maxlength="25">
+
+                    </div>
+
+                    <div class="col-xl-12">
+
+                        <label for="StudentID" class="col-form-label-lg"><b>Price:</b></label>
+                        <input type="text" class="form-control" name="Price" id="Price" placeholder="Search Price" maxlength="25">
+
+                    </div>
+                    
+
+                </div>
+
+                <div class="btn-padding">
+
+                    <button type="submit" class="btn btn-success btn-lg" id="SearchButton" name="SearchButton" value="SearchButton">Search Book List</button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </form>
+
+
+
+        <div class="search-results">
+
+            <div class="search-results-header">
+
+                <label for="StudentProfile" class="heading2"><b>Search Results:</b></label>
+
+            </div>
+
+            @if (Model == null || Model.Count() == 0)
+            {
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="position-relative form-group">
+                            <div class="reposition">
+
+                                <p>No result match search criteria</p>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="box-body table-responsive no-padding">
+                    <table class="table table-hover">
+                        <tr>
+                            <th>TextookID</th>
+                            <th>ISBN#</th>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Author</th>
+                            <th>Publisher</th>
+                            <th>Edition</th>
+                            <th>Condition</th>
+                            <th>Price</th>
+                        </tr>
+                        @foreach (var textbook in Model)
+                        {
+                    <tr>
+                        <td>@textbook.BookID</td>
+                        <td>@textbook.ISBN</td>
+                        <td>@textbook.Title</td>
+                        <td>@textbook.Description</td>
+                        <td>@textbook.Author </td>
+                        <td>@textbook.Publisher</td>
+                        <td>@textbook.Edition</td>
+                        <td>@textbook.Condition</td>
+                        <td>@textbook.Price </td>
+                        <td>
+                            <a href="StudentProfile?ID=@textbook.BookID" class="btn btn-block btn-warning btn-sm">View Profile</a>
+                        </td>
+                    </tr>
+                        }
+                    </table>
+                </div>
+            }
+
+
+        </div>
+
+
+    </div>
+</section>
+

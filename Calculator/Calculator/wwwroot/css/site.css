@@ -1,0 +1,139 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+
+.output {
+    font-weight: bold;
+    position: center;
+    margin-top: 3%;
+    margin-left: 40%;
+    font-size: 2em;
+}
+
+.input-number1 {
+    font-weight: bold;
+    font-size: 1.2em;
+    padding-left: 30%;
+
+}
+
+.input-number2 {
+    font-weight: bold;
+    font-size: 1.2em;
+    
+}
+
+.input-field {
+    padding-left: 20%;
+    margin-top: 2%;
+}
+
+.input1 {
+    padding-right: 10%;
+}
+
+.input2 {
+    padding-right: 10%;
+}
+
+
+.buttons {
+    padding-left: 37%;
+    margin-top: 2%;
+}
+
+.add-button {
+    font-weight: bold;
+    color: black;
+    background-color: lawngreen;
+    width: 10%;
+   
+}
+.subtract-button {
+    font-weight: bold;
+    color: black;
+    background-color: darkorange;
+    width: 10%;
+}
+.multiply-button {
+    font-weight: bold;
+    color: black;
+    background-color: deeppink;
+    width: 10%;
+}
+.divide-button {
+    font-weight: bold;
+    color: white;
+    background-color: blue;
+    width: 10%;
+}
+
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+}
