@@ -29,5 +29,15 @@ namespace UniBook.Controllers
         {
             return View();
         }
+
+        public IActionResult Buy()
+        {
+            return View();
+        }
+
+        public IActionResult Sell()
+        {
+            return View();
+        }
     }
 }
