@@ -1,8 +1,5 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-    
+﻿@{
+
 }
 <!--
 =========================================================
@@ -46,7 +43,7 @@
     <div class="container position-sticky z-index-sticky top-0">
         <div class="row">
             <div class="col-12">
-               
+
             </div>
         </div>
     </div>
@@ -81,40 +78,62 @@
                                 </div>
                             </div>
                             <div class="card-body">
-                                <form role="form" class="text-start">
+
+                                <form role="form" class="text-start" method="post">
+                                    @if (ViewData["ErrorList"] != null)
+                                    {
+                                        List<string> errorList = ViewData["ErrorList"] as List<string>;
+                                        if (errorList.Count() > 0)
+                                        {
+                                            <div class="alert alert-danger" role="alert" style="width:100%;">
+                                                <ul>
+                                                    @foreach (var currentError in errorList)
+                                                    {
+                                                        <li>@currentError</li>
+                                                    }
+                                                </ul>
+                                            </div>
+                                        }
+                                    }
                                     <div class="input-group input-group-outline my-3">
                                         <label class="form-label">Email</label>
-                                        <input type="email" class="form-control">
+                                        <input type="email" class="form-control" id="Email" name="Email">
                                     </div>
                                     <div class="input-group input-group-outline mb-3">
                                         <label class="form-label">Password</label>
-                                        <input type="password" class="form-control">
+                                        <input type="password" class="form-control" id="Password" name="Password">
                                     </div>
                                     <div class="form-check form-switch d-flex align-items-center mb-3">
                                         <input class="form-check-input" type="checkbox" id="rememberMe" checked>
                                         <label class="form-check-label mb-0 ms-3" for="rememberMe">Remember me</label>
                                     </div>
                                     <div class="text-center">
-                                        <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2">Sign in</button>
+                                        <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2" id="SearchButton" name="SearchButton" value="SearchButton">Sign in</button>
                                     </div>
                                     <p class="mt-4 text-sm text-center">
                                         Don't have an account?
                                         <a href="/Account/Register" class="text-primary text-gradient font-weight-bold">Sign up</a>
                                     </p>
                                 </form>
+
+
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
+
         </div>
+
+
     </main>
     <!--   Core JS Files   -->
-    <script src="../assets/js/core/popper.min.js"></script>
-    <script src="../assets/js/core/bootstrap.min.js"></script>
-    <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
-    <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
+    <script src="../material-dashboard-master/assets/js/core/popper.min.js"></script>
+    <script src="../material-dashboard-master/assets/js/core/bootstrap.min.js"></script>
+    <script src="../material-dashboard-master/assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="../material-dashboard-master/assets/js/plugins/smooth-scrollbar.min.js"></script>
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
         if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -126,7 +145,7 @@
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="../assets/js/material-dashboard.min.js?v=3.0.4"></script>
+    <script src="~/material-dashboard-master/assets/js/material-dashboard.min.js?v=3.0.4"></script>
 
 </body>
 

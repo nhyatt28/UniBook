@@ -1,0 +1,134 @@
+﻿@model List<CSSTemplateDemo1._1.Models.Item>
+@{
+
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Search <small>Preview</small>
+        </h1>
+
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <form id="SearchForm" method="post" action="" novalidate="novalidate">
+                <div class="col-md-12">
+                    <!-- general form elements -->
+                    <div class="box box-danger">
+                        <div class="box-header">
+                            <h3 class="box-title">Item Search</h3>
+                        </div>
+                        <div class="box-body">
+                            @if (ViewData["ErrorMessage"] != null)
+                            {
+                                List<string> errorList = ViewData["ErrorMessage"] as List<string>;
+                                if (errorList.Count() > 0)
+                                {
+                                    <div class="alert alert-danger" role="alert" style="width:100%;">
+                                        <ul>
+                                            @foreach (var currentError in errorList)
+                                            {
+                                                <li>@currentError</li>
+                                            }
+                                        </ul>
+                                    </div>
+                                }
+                            }
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <label for="exampleInputEmail1">ID</label>
+                                    <input type="text" class="form-control" name="ItemId" id="ItemId" placeholder="Enter ID">
+                                </div>
+                                <div class="col-xs-3">
+                                    <label for="exampleInputEmail1">Code</label>
+                                    <input type="text" class="form-control" name="Code" id="Code" placeholder="Enter first name">
+                                </div>
+                                <div class="col-xs-3">
+                                    <label for="exampleInputEmail1">Description</label>
+                                    <input type="text" class="form-control" name="Description" id="Description" placeholder="Enter last name">
+                                </div>
+                                <div class="col-xs-3">
+                                    <label for="exampleInputEmail1">Quantity</label>
+                                    <input type="text" class="form-control" name="Quantity" id="Quantity" placeholder="Enter phone">
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="box-footer">
+
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary btn-lg" id="SearchButton" name="SearchButton" value="SearchButton">Search</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Search Results</h3>
+                        <div class="box-tools">
+                            <div class="input-group">
+                                <input type="text" name="table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search" />
+                                <div class="input-group-btn">
+                                    <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- /.box-header -->
+
+                    @if (Model == null || Model.Count() == 0)
+                    {
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="position-relative form-group">
+                                    <p>No result match search criteria</p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="box-body table-responsive no-padding">
+                            <table class="table table-hover">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Code</th>
+                                    <th>Description</th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                    <th>Details</th>
+                                    <th>Type</th>
+                                    <th>Profile</th>
+                                </tr>
+                                @foreach (var item in Model)
+                                {
+                            <tr>
+                                <td>@item.ID</td>
+                                <td>@item.Code</td>
+                                <td>@item.Description</td>
+                                <td>@item.Quantity</td>
+                                <td>@item.Price </td>
+                                <td>@item.Details</td>
+                                <td>@item.Type</td>                                
+                                <td>
+                                    <a href="ItemProfile?itemId=@item.ID" class="btn btn-block btn-warning btn-sm">View Profile</a>
+                                </td>
+                            </tr>
+                                }
+                            </table>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

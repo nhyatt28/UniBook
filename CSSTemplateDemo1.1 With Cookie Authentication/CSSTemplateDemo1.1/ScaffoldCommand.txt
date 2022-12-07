@@ -1,0 +1,4 @@
+﻿
+Scaffold-DbContext "Server=buscissql1901\cisweb;Database=CIS410_Testing;User ID=robotic;Password=nets;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Context "DemoContext" -Project "CSSTemplateDemo1.1" -UseDatabaseNames -Force
+
+optionsBuilder.UseLazyLoadingProxies();

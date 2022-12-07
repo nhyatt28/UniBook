@@ -181,59 +181,29 @@ namespace UniBook.Models
 
             modelBuilder.Entity<RegisterStudent>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.StudentID);
 
                 entity.ToTable("RegisterStudent");
 
-                entity.Property(e => e.City)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
                 entity.Property(e => e.Email)
                     .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
+                    .HasMaxLength(50);
 
-                entity.Property(e => e.FName)
+                entity.Property(e => e.Fname)
                     .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.GradYear).HasColumnType("date");
+                    .HasMaxLength(50);
 
                 entity.Property(e => e.LName)
                     .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
+                    .HasMaxLength(50);
 
-                entity.Property(e => e.MI)
-                    .HasMaxLength(1)
-                    .IsUnicode(false)
-                    .IsFixedLength(true);
-
-                entity.Property(e => e.Password).HasMaxLength(50);
-
-                entity.Property(e => e.Phone)
-                    .HasMaxLength(10)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.State)
+                entity.Property(e => e.Password)
                     .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
+                    .HasMaxLength(50);
 
-                entity.Property(e => e.Street)
+                entity.Property(e => e.Username)
                     .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Username).HasMaxLength(50);
-
-                entity.Property(e => e.Zip)
-                    .IsRequired()
-                    .HasMaxLength(5)
-                    .IsUnicode(false);
+                    .HasMaxLength(50);
             });
 
             modelBuilder.Entity<School>(entity =>

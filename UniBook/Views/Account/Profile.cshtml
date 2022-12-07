@@ -1,6 +1,6 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model List<UniBook.Models.RegisterStudent>
+
+
 @{
     Layout = "~/Views/Shared/DashboardLayout.cshtml";
 }
@@ -31,13 +31,13 @@
     <title>
         Material Dashboard 2 by Creative Tim
     </title>
-   
+
 </head>
 
 <body class="g-sidenav-show bg-gray-200">
-  
+
     <div class="main-content position-relative max-height-vh-100 h-100">
-        
+
         <div class="container-fluid px-2 px-md-4">
             <div class="page-header min-height-300 border-radius-xl mt-4" style="background-image: url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80');">
                 <span class="mask  bg-gradient-primary  opacity-6"></span>
@@ -52,7 +52,7 @@
                     <div class="col-auto my-auto">
                         <div class="h-100">
                             <h5 class="mb-1">
-                                Richard Davis
+                                @User.Identity.Name
                             </h5>
                             <p class="mb-0 font-weight-normal text-sm">
                                 CEO / Co-Founder
@@ -398,7 +398,7 @@
                 </div>
             </div>
         </div>
-    
+
 </body>
 
 </html>

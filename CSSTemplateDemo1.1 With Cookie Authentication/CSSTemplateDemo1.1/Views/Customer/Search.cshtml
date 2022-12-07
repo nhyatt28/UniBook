@@ -1,0 +1,152 @@
+﻿@model List<CSSTemplateDemo1._1.Models.Customer>
+@{
+
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Search <small>Preview</small>
+        </h1>
+
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <form id="SearchForm" method="post" action="" novalidate="novalidate">
+                <div class="col-md-12">
+                    <!-- general form elements -->
+                    <div class="box box-danger">
+                        <div class="box-header">
+                            <h3 class="box-title">Customer Search</h3>
+                        </div>
+                        <div class="box-body">
+                            @if (ViewData["ErrorMessage"] != null)
+                            {
+                                List<string> errorList = ViewData["ErrorMessage"] as List<string>;
+                                if (errorList.Count() > 0)
+                                {
+                                    <div class="alert alert-danger" role="alert" style="width:100%;">
+                                        <ul>
+                                            @foreach (var currentError in errorList)
+                                            {
+                                                <li>@currentError</li>
+                                            }
+                                        </ul>
+                                    </div>
+                                }
+                            }
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <label for="exampleInputEmail1">ID</label>
+                                    <input type="text" class="form-control" name="CustId" id="CustId" placeholder="Enter ID">
+                                </div>
+                                <div class="col-xs-3">
+                                    <label for="exampleInputEmail1">First Name</label>
+                                    <input type="text" class="form-control" name="FirstName" id="FirstName" placeholder="Enter first name">
+                                </div>
+                                <div class="col-xs-3">
+                                    <label for="exampleInputEmail1">Last Name</label>
+                                    <input type="text" class="form-control" name="LastName" id="LastName" placeholder="Enter last name">
+                                </div>
+                                <div class="col-xs-3">
+                                    <label for="exampleInputEmail1">Phone</label>
+                                    <input type="text" class="form-control" name="Phone" id="Phone" placeholder="Enter phone">
+                                </div>
+                                <div class="col-xs-3">
+                                    <label for="exampleInputEmail1">Email</label>
+                                    <input type="email" class="form-control" name="Email" id="Email" placeholder="Enter email">
+                                </div>
+                                <div class="col-xs-3">
+                                    <label for="exampleInputEmail1">City</label>
+                                    <input type="text" class="form-control" name="City" id="City" placeholder="Enter city">
+                                </div>
+                                <div class="col-xs-3">
+                                    <label for="exampleInputEmail1">State</label>
+                                    <input type="text" class="form-control" name="State" id="State" placeholder="Enter state">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-footer">
+
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary btn-lg" id="SearchButton" name="SearchButton" value="SearchButton">Search</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Search Results</h3>
+                        <div class="box-tools">
+                            <div class="input-group">
+                                <input type="text" name="table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search" />
+                                <div class="input-group-btn">
+                                    <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+                    @if (Model == null || Model.Count() == 0)
+                    {
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="position-relative form-group">
+                                    <p>No result match search criteria</p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="box-body table-responsive no-padding">
+                            <table class="table table-hover">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Phone</th>
+                                    <th>Address</th>
+                                    <th>Email</th>
+                                    <th>Date Joined</th>
+                                    <th>Profle</th>
+                                </tr>
+                                @foreach (var customer in Model)
+                                {
+                                    <tr>
+                                        <td>@customer.ID</td>
+                                        <td>@customer.FName</td>
+                                        <td>@customer.LName</td>
+                                        <td>@customer.Phone</td>
+                                        <td>@customer.Street1 </td>
+                                        <td>@customer.Email</td>
+                                        <td><span class="label label-info"> @customer.DateJoined.ToString()</span></td>
+                                        <td>
+                                            <a href="CustomerProfile?custId=@customer.ID" class="btn btn-block btn-warning btn-sm">View Profile</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </table>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

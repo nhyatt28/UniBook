@@ -1,0 +1,127 @@
+﻿@model List<CSSTemplateDemo1._1.Models.Order>
+@{
+
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Search <small>Preview</small>
+        </h1>
+
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <form id="SearchForm" method="post" action="" novalidate="novalidate">
+                <div class="col-md-12">
+                    <!-- general form elements -->
+                    <div class="box box-danger">
+                        <div class="box-header">
+                            <h3 class="box-title">Order Search</h3>
+                        </div>
+                        <div class="box-body">
+                            @if (ViewData["ErrorMessage"] != null)
+                            {
+                                List<string> errorList = ViewData["ErrorMessage"] as List<string>;
+                                if (errorList.Count() > 0)
+                                {
+                                    <div class="alert alert-danger" role="alert" style="width:100%;">
+                                        <ul>
+                                            @foreach (var currentError in errorList)
+                                            {
+                                                <li>@currentError</li>
+                                            }
+                                        </ul>
+                                    </div>
+                                }
+                            }
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <label for="exampleInputEmail1">ID</label>
+                                <input type="text" class="form-control" name="OrderID" id="OrderID" placeholder="Enter ID">
+                            </div>
+                            <div class="col-xs-3">
+                                <label for="exampleInputEmail1">Date</label>
+                                <input type="text" class="form-control" name="Date" id="Date" placeholder="Enter first name">
+                            </div>
+                            <div class="col-xs-3">
+                                <!--  complete this part customer ID... -->
+                            </div>
+                            <div class="col-xs-3">
+                                <!--  complete this part item ID... -->
+                            </div>
+                        </div>
+                        </div>
+                        <div class="box-footer">
+
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary btn-lg" id="SearchButton" name="SearchButton" value="SearchButton">Search</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Search Results</h3>
+                        <div class="box-tools">
+                            <div class="input-group">
+                                <input type="text" name="table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search" />
+                                <div class="input-group-btn">
+                                    <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- /.box-header -->
+
+                    @if (Model == null || Model.Count() == 0)
+                    {
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="position-relative form-group">
+                                    <p>No result match search criteria</p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="box-body table-responsive no-padding">
+                            <table class="table table-hover">
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Date</th>
+                                    <th>Customer</th>
+                                    <th>Notes</th>
+                                    <th>Price</th>
+                                    <th>Profile</th>
+                                </tr>
+                                @foreach (var order in Model)
+                                {
+                                    <tr>
+                                        <td>@order.ID</td>
+                                        <td>@order.OrderDate</td>
+                                        <td>@order.Customer.FName  @order.Customer.LName </td>
+                                        <td>@order.Notes</td>
+                                        <td>
+                                            <!--  complete this part customer ID... -->
+                                            <a href="#" class="btn btn-block btn-warning btn-sm">View Order</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </table>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

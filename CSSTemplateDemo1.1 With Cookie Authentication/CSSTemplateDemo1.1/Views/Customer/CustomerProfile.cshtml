@@ -1,0 +1,157 @@
+﻿@model CSSTemplateDemo1._1.Models.Customer
+@{
+
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Customer <small>Preview</small>
+        </h1>
+
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <form id="SearchForm" method="post" action="" novalidate="novalidate">
+                <div class="col-md-12">
+                    <!-- general form elements -->
+                    <div class="box box-danger">
+                        <div class="box-header">
+                            <h3 class="box-title">Customer Profile</h3>
+                        </div>
+                        <div class="box-body">
+                            @if (ViewData["ErrorMessage"] != null)
+                            {
+                                List<string> errorList = ViewData["ErrorMessage"] as List<string>;
+                                if (errorList.Count() > 0)
+                                {
+                                    <div class="alert alert-danger" role="alert" style="width:100%;">
+                                        <ul>
+                                            @foreach (var currentError in errorList)
+                                            {
+                                                <li>@currentError</li>
+                                            }
+                                        </ul>
+                                    </div>
+                                }
+                            }
+                            @if (ViewData["SuccessMessage"] != null)
+                            {
+                                List<string> successMessage = ViewData["SuccessMessage"] as List<string>;
+                                if (successMessage.Count() > 0)
+                                {
+                                    <div class="alert alert-success" role="alert" style="width:100%;">
+                                        <ul>
+                                            @foreach (var msg in successMessage)
+                                            {
+                                                <li>@msg</li>
+                                            }
+                                        </ul>
+                                    </div>
+                                }
+                            }
+                            
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="position-relative form-group">
+                                        <label for="signupFirstName">ID</label>
+                                        <input name="CustId" id="CustId"
+                                               placeholder="Enter your first name" type="text"
+                                               maxlength="25"
+                                               value="@Model.ID"
+                                               class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="position-relative form-group">
+                                        <label for="signupFirstName">First Name</label>
+                                        <input name="FirstName" id="FirstName"
+                                               placeholder="Enter your first name" type="text"
+                                               value="@Model.FName" maxlength="25"
+                                               class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="position-relative form-group">
+                                        <label for="signupFirstName">Last Name</label>
+                                        <input name="LastName" id="LastName"
+                                               placeholder="Enter your first name" type="text"
+                                               value="@Model.LName" maxlength="25"
+                                               class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="position-relative form-group">
+                                        <label for="signupFirstName">Phone</label>
+                                        <input name="Phone" id="Phone"
+                                               placeholder="Enter your first name" type="text"
+                                               value="@Model.Phone" maxlength="25"
+                                               class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="position-relative form-group">
+                                        <label for="signupFirstName">Email</label>
+                                        <input name="Email" id="Email"
+                                               placeholder="Enter your first name" type="text"
+                                               value="@Model.Email" maxlength="25"
+                                               class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="position-relative form-group">
+                                        <label for="signupFirstName">Address 1</label>
+                                        <input name="Address1" id="Address1"
+                                               placeholder="Enter your Address1" type="text"
+                                               value="@Model.Street1" maxlength="25"
+                                               class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="position-relative form-group">
+                                        <label for="signupLastName">Address 2</label>
+                                        <input name="Address2" id="Address2"
+                                               placeholder="Enter your Address2" type="text"
+                                               value="@Model.Street2" maxlength="25"
+                                               class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="position-relative form-group">
+                                        <label for="signupLastName">City</label>
+                                        <input name="City" id="City"
+                                               placeholder="Enter your Address2" type="text"
+                                               value="@Model.City" maxlength="25"
+                                               class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="position-relative form-group">
+                                        <label for="signupLastName">State</label>
+                                        <input name="State" id="State"
+                                               placeholder="Enter your state" type="text"
+                                               value="@Model.State" maxlength="25"
+                                               class="form-control">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-footer">
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary btn-lg" id="SearchButton" name="AddButton" value="AddButton">Add</button>
+                                <button type="submit" class="btn btn-warning btn-lg" id="SearchButton" name="UpdateButton" value="UpdateButton">Update</button>
+                                <button type="submit" class="btn btn-danger btn-lg" id="SearchButton" name="DeleteButton" value="DeleteButton">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        
+    </section>
+</div>

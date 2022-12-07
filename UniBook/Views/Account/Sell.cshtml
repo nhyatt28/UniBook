@@ -1,5 +1,5 @@
 ﻿@model UniBook.Models.Textbook
-   
+
 @{ Layout = "~/Views/Shared/DashboardLayout.cshtml";
 }
 <!DOCTYPE html>
@@ -559,6 +559,46 @@
                 </div>
             </div>
         </div>
+        <form class="buy-form" id="SearchForm" method="post" action="" novalidate="novalidate">
+
+
+            <div class="center">
+
+                <div class="Buy">
+
+                    <div>
+                        <label for="Buy" class="heading"><b>Search Results:</b></label>
+                    </div>
+
+
+                    <label for="BookID" class="col-form-label-lg"><b>BookID</b></label>
+                    <input type="text" class="form-control" name="ID" id="ID" value="Model.ID" placeholder="Enter BookID" maxlength="25">
+
+                    <label for="StudentID" class="col-form-label-lg"><b>First Name:</b></label>
+                    <input type="text" class="form-control" name="FName" id="FName" value="Model.FName" placeholder="Enter First Name" maxlength="25">
+
+                    <label for="StudentID" class="col-form-label-lg"><b>Last Name:</b></label>
+                    <input type="text" class="form-control" name="LName" id="LName" value="Model.LName" placeholder="Enter Last Name" maxlength="25">
+
+                    <label for="StudentID" class="col-form-label-lg"><b>Address:</b></label>
+                    <input type="text" class="form-control" name="Address" id="Address" value="Model.Address" placeholder="Enter Address" maxlength="25">
+
+                    <label for="StudentID" class="col-form-label-lg"><b>Phone Number:</b></label>
+                    <input type="text" class="form-control" name="Phone" id="Phone" value="Model.Phone" placeholder="Enter Phone Number" maxlength="25">
+
+                    <div class="btn-padding">
+
+                        <button type="submit" class="btn btn-primary btn-lg" id="SearchButton" name="AddButton" value="AddButton">Add</button>
+                        <button type="submit" class="btn btn-warning btn-lg" id="SearchButton" name="UpdateButton" value="UpdateButton">Update</button>
+                        <button type="submit" class="btn btn-danger btn-lg" id="SearchButton" name="DeleteButton" value="DeleteButton">Delete</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </form>
     </div>
     <!--   Core JS Files   -->
     <script src="../material-dashboard-master/assets/js/core/popper.min.js"></script>
@@ -577,6 +617,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../material-dashboard-master/assets/js/material-dashboard.min.js?v=3.0.4"></script>
+
+
 </body>
 
 </html>
+
+
+

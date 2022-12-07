@@ -1,0 +1,163 @@
+﻿@model CSSTemplateDemo1._1.Models.Order
+
+
+@{
+
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Orders <small>Preview</small>
+        </h1>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <form id="SearchForm" method="post" action="" novalidate="novalidate">
+                <div class="col-md-12">
+                    <!-- general form elements -->
+                    <div class="box box-danger">
+                        <div class="box-header">
+                            <h3 class="box-title"></h3>
+                        </div>
+                        <div class="box-body">
+                            @if (ViewData["ErrorMessage"] != null)
+                            {
+                                List<string> errorList = ViewData["ErrorMessage"] as List<string>;
+                                if (errorList.Count() > 0)
+                                {
+                                    <div class="alert alert-danger" role="alert" style="width:100%;">
+                                        <ul>
+                                            @foreach (var currentError in errorList)
+                                            {
+                                                <li>@currentError</li>
+                                            }
+                                        </ul>
+                                    </div>
+                                }
+                            }
+                            @if (ViewData["SuccessMessage"] != null)
+                            {
+                                List<string> successMessage = ViewData["SuccessMessage"] as List<string>;
+                                if (successMessage.Count() > 0)
+                                {
+                                    <div class="alert alert-success" role="alert" style="width:100%;">
+                                        <ul>
+                                            @foreach (var msg in successMessage)
+                                            {
+                                                <li>@msg</li>
+                                            }
+                                        </ul>
+                                    </div>
+                                }
+                            }
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="position-relative form-group">
+                                        <label for="signupFirstName">ID</label>
+                                        <input name="CustId" id="FirstCustIdName"
+                                               placeholder="Enter your first name" type="text"
+                                               maxlength="25"
+                                               value="@Model.ID"
+                                               class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="position-relative form-group">
+                                        <label for="signupFirstName">CustomerID</label>
+                                        <input name="FirstName" id="FirstName"
+                                               placeholder="Enter your first name" type="text"
+                                               value="@Model.CustomerID" maxlength="25"
+                                               class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="position-relative form-group">
+                                        <label for="signupFirstName">OrderDate</label>
+                                        <input name="LastName" id="LastName"
+                                               placeholder="Enter your first name" type="text"
+                                               value="@Model.OrderDate" maxlength="25"
+                                               class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="position-relative form-group">
+                                        <label for="signupFirstName">Notes</label>
+                                        <input name="Phone" id="Phone"
+                                               placeholder="Enter your first name" type="text"
+                                               value="@Model.Notes" maxlength="25"
+                                               class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="box-body table-responsive no-padding">
+                                        <table class="table table-hover">
+                                            <tr>
+                                                <th>Item ID</th>
+                                                <th>Item Code</th>
+                                                <th>Price</th>
+                                                <th>Quantity</th>
+                                                <th>Notes</th>
+                                            </tr>
+                                            @foreach (var item in @Model.OrderItems)
+                                            {
+                                        <tr>
+                                            <td>
+                                                <input name="ItemID" id="ItemID"
+                                                       placeholder="ItemID" type="text"
+                                                       value="@item.ID" maxlength="5"
+                                                       class="form-control">
+                                            </td>
+                                            <td>
+                                                <input name="ItemCode" id="ItemCode"
+                                                       placeholder="ItemID" type="text"
+                                                       value="@item.ItemID" maxlength="5"
+                                                       class="form-control">
+                                            </td>
+
+                                            <td>
+                                                <input name="ItemPrice" id="ItemPrice"
+                                                       placeholder="ItemID" type="text"
+                                                       value="@item.Price" maxlength="25"
+                                                       class="form-control">
+
+                                            </td>
+                                            <td>
+                                                <input name="ItemQuantity" id="ItemQuantity"
+                                                       placeholder="ItemID" type="text"
+                                                       value="@item.Quantity" maxlength="25"
+                                                       class="form-control">
+
+                                            </td>
+                                            <td>
+                                                <input name="ItemNotes" id="ItemNotes"
+                                                       placeholder="ItemID" type="text"
+                                                       value="@item.Notes" maxlength="250"
+                                                       class="form-control">
+                                            </td>
+                                        </tr>
+                                            }
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-footer">
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary btn-lg" id="SearchButton" name="AddButton" value="AddButton">Add</button>
+                                <button type="submit" class="btn btn-warning btn-lg" id="SearchButton" name="UpdateButton" value="UpdateButton">Update</button>
+                                <button type="submit" class="btn btn-danger btn-lg" id="SearchButton" name="DeleteButton" value="DeleteButton">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+    </section>
+</div>
