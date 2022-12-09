@@ -91,7 +91,7 @@ namespace UniBook.Controllers
                 ViewData["ErrorMessage"] = new List<string> { "showing the list of all textbooks, no search criteria was selected" };
                 searchbook = demoContext.Textbooks.ToList();
             }
-            return View(searchbook);
+            return await Task.FromResult(View(searchbook));
         }
 
        

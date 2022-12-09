@@ -80,7 +80,7 @@ namespace UniBook.Controllers
                     return View();
                 }
             }
-            return View();
+            return await  Task.FromResult(View());
         }
         [HttpGet]
         public IActionResult Register()
@@ -137,7 +137,7 @@ namespace UniBook.Controllers
                 demoContext.SaveChanges();
                 return RedirectToAction("Login", "Account");
             }
-            return View();
+            return await Task.FromResult(View());
         }
 
         [Authorize]
@@ -257,7 +257,7 @@ namespace UniBook.Controllers
                     DeleteTxtBook(searchTxtBook);
                 }
             }
-            return View(searchTxtBook);
+            return await Task.FromResult(View(searchTxtBook));
         }
 
         public Textbook AddTxtBook(Textbook txtBook)
@@ -361,7 +361,7 @@ namespace UniBook.Controllers
                 ViewData["ErrorMessage"] = new List<string> { "showing the list of all textbooks, no search criteria was selected" };
                 searchbook = demoContext.Textbooks.ToList();
             }
-            return View(searchbook);
+            return await Task.FromResult(View(searchbook));
         }
 
     }
