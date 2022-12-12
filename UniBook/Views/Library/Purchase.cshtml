@@ -1,0 +1,113 @@
+﻿@model UniBook.Models.Textbook
+
+@{
+    Layout = "~/Views/Shared/SearchLayout.cshtml";
+}
+
+<link href="../css/PurchaseForm.css" rel="stylesheet" />
+
+
+    <section class="body-layout">
+
+        <div class="container1">
+            <div class="title">
+                <h2> Book Order Form </h2>
+            </div>
+            <div class="d-flex1">
+                <form method="post" novalidate="novalidate">
+                    <label>
+                        <span class="fname"> First Name <span class="required"> * </span></span>
+                        <input type="text" name="fname">
+                    </label>
+                    <label>
+                        <span class="lname"> Last Name <span class="required"> * </span> </span>
+                        <input type="text" name="lname">
+                    </label>
+                    <label>
+                        <span> Company Name </span>
+                        <input type="text" name="cn">
+                    </label>
+                    <label>
+                        <span>Country <span class="required">*</span></span>
+                        <select name="selection">
+                            <option value="USA">Unites States</option>
+                        </select>
+                    </label>
+                    <label>
+                        <span>Address <span class="required"> * </span></span>
+                        <input type="text" name="houseadd" placeholder="House number and street name" required>
+                    </label>
+                    <label>
+                        <span> </span>
+                        <input type="text" name="apartment" placeholder="Apartment, suite, unit etc. (optional)">
+                    </label>
+                    <label>
+                        <span> Town / City <span class="required">*</span></span>
+                        <input type="text" name="city">
+                    </label>
+                    <label>
+                        <span> State / County <span class="required">*</span></span>
+                        <input type="text" name="city">
+                    </label>
+                    <label>
+                        <span> Postcode / ZIP <span class="required">*</span></span>
+                        <input type="text" name="city">
+                    </label>
+                    <label>
+                        <span> Phone Number <span class="required">*</span></span>
+                        <input type="tel" name="city">
+                    </label>
+                    <label>
+                        <span> Email Address <span class="required">*</span></span>
+                        <input type="email" name="city">
+                    </label>
+                </form>
+                <div class="Yorder">
+                    <table>
+
+                        <tr>
+                            <th colspan="2"> Your order </th>
+                        </tr>
+
+                        <tr>
+                            <th>ISBN#:</th>
+                            <td> @Model.ISBN </td>
+                        </tr>
+
+                        <tr>
+                            <th>Title:</th>
+                            <td> @Model.Title </td>
+                        </tr>
+
+                        <tr>
+                            <th>Author:</th>
+                            <td> @Model.Author </td>
+                        </tr>
+
+                        <tr>
+                            <th>Description:</th>
+                            <td> @Model.Description </td>
+                        </tr>
+
+                        <tr>
+                            <th>Condition:</th>
+                            <td> @Model.Condition </td>
+                        </tr>
+
+                        <tr>
+                            <td> <b>Subtotal:</b> </td>
+                            <td> $@Model.Price.00</td>
+                        </tr>
+
+                        <tr>
+                            <td> <b>Shipping:</b> </td>
+                            <td> Free shipping: </td>
+                        </tr>
+
+                    </table><br>
+                    <button class="button1" type="button"> Place Order </button>
+                </div>
+            </div>
+        </div>
+
+    </section>

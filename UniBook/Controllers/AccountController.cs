@@ -56,16 +56,14 @@ namespace UniBook.Controllers
 
                 if (searchStudent != null)
                 {
-                    var claim = new List<Claim>
-                {
+                    var claim = new List<Claim> {
 
-                    new Claim(ClaimTypes.Email, Email),
-                    new Claim(ClaimTypes.Hash, searchStudent.Password),
-                    new Claim(ClaimTypes.Name, searchStudent.Fname + " " + searchStudent.LName),
+                        new Claim(ClaimTypes.Email, searchStudent.Email),
+                        new Claim(ClaimTypes.Hash, searchStudent.Password),
+                        new Claim(ClaimTypes.Name, searchStudent.Fname + " " + searchStudent.LName),
 
+                    };
 
-
-                };
                     var identity = new ClaimsIdentity(claim, CookieAuthenticationDefaults.AuthenticationScheme);
                     var principle = new ClaimsPrincipal(identity);
                     var props = new AuthenticationProperties();
@@ -82,6 +80,24 @@ namespace UniBook.Controllers
             }
             return await  Task.FromResult(View());
         }
+        [Authorize]
+        public async Task<IActionResult> Logout()
+        {
+          
+            await HttpContext.SignOutAsync();
+
+            if (HttpContext.SignOutAsync().IsCompletedSuccessfully)
+            {
+                TempData["SuccessMessage"] = new List<string> { "Loggout Completed Successfully. Goodbye!" };
+                return RedirectToAction("Index", "Home", ViewData);
+            } else
+            {
+                TempData["ErrorList"] = new List<string> { "Loggout Unsuccessful. Redirecting to Account Profile." };
+                return RedirectToAction("Profile", "Account", "LogoutUnsuccessful");
+            }
+           
+        }
+
         [HttpGet]
         public IActionResult Register()
         {

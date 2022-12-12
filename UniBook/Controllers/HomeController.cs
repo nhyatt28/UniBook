@@ -6,6 +6,10 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using UniBook.Models;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace UniBook.Controllers
 {
@@ -23,33 +27,16 @@ namespace UniBook.Controllers
             return View();
         }
 
+
         public IActionResult Index2()
         {
             return View();
         }
-        /*
-        public async Task<ActionResult> Index2(Microsoft.AspNetCore.Http.IFormCollection fromColl)
-        {
-          
-            return View();
-        }
-        */
-
         public IActionResult About()
         {
             return View();
         }
         public IActionResult Contact()
-        {
-            return View();
-        }
-
-        public IActionResult Search()
-        {
-            return View();
-        }
-
-        public IActionResult Privacy()
         {
             return View();
         }

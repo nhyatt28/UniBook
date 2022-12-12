@@ -54,21 +54,21 @@
             <table id="center">
 
                 <tr>
-                    <td><input type="text" id="center" class="basic-styling" name="BookID" placeholder="Search TextbookID" maxlength="25">
-                    <td><input type="text" id="center" class="basic-styling" name="ISBN" placeholder="Search ISBN #" maxlength="25">
-                    <td><input type="text" id="center" class="basic-styling" name="Title" placeholder="Search Title" maxlength="25">
+                    <td><input type="text" id="center" class="basic-styling" name="BookID" placeholder="Enter TextbookID" maxlength="25">
+                    <td><input type="text" id="center" class="basic-styling" name="ISBN" placeholder="Enter ISBN #" maxlength="25">
+                    <td><input type="text" id="center" class="basic-styling" name="Title" placeholder="Enter Title" maxlength="25">
                 </tr>
 
                 <tr>
-                    <td><input type="text" id="center" class="basic-styling" name="Description" placeholder="Search Description" maxlength="25">
-                    <td><input type="text" id="center" class="basic-styling" name="Publisher" placeholder="Search Publisher" maxlength="25">
-                    <td><input type="text" id="center" class="basic-styling" name="Author" placeholder="Search Author" maxlength="25">
+                    <td><input type="text" id="center" class="basic-styling" name="Description" placeholder="Enter Description" maxlength="25">
+                    <td><input type="text" id="center" class="basic-styling" name="Publisher" placeholder="Enter Publisher" maxlength="25">
+                    <td><input type="text" id="center" class="basic-styling" name="Author" placeholder="Enter Author" maxlength="25">
                 </tr>
 
                 <tr>
-                    <td><input type="text" id="center" class="basic-styling" name="Edition" placeholder="Search Edition" maxlength="25">
-                    <td><input type="text" id="center" class="basic-styling" name="Condition" placeholder="Search Condition" maxlength="25">
-                    <td><input type="text" id="center" class="basic-styling" name="Price" placeholder="Search Price" maxlength="25">
+                    <td><input type="text" id="center" class="basic-styling" name="Edition" placeholder="Enter Edition" maxlength="25">
+                    <td><input type="text" id="center" class="basic-styling" name="Condition" placeholder="Enter Condition" maxlength="25">
+                    <td><input type="text" id="center" class="basic-styling" name="Price" placeholder="Enter Price" maxlength="25">
                 </tr>
 
                 <tr><td></td><td><button type="submit" id="center" class="basic-button-styling" name="SearchButton" value="SearchButton">Search Book List</button></tr>
@@ -96,7 +96,7 @@
                             <th>Edition</th>
                             <th>Condition</th>
                             <th>Price</th>
-                            <th>View Profile</th>
+                            <th>Buy Book</th>
                         </tr>
                         @foreach (var textbook in Model)
                         {
@@ -111,7 +111,8 @@
                                 <td>@textbook.Condition</td>
                                 <td>$@textbook.Price</td>
                                 <td>
-                                    <a href="StudentProfile?ID=@textbook.BookID" class="btn btn-block btn-warning btn-sm">View Profile</a>
+                                   
+                                    <a href="Purchase?BookID=@textbook.BookID" class="btn btn-block btn-warning btn-sm">BuyBook</a>
                                 </td>
                             </tr>
                         }
