@@ -12,17 +12,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <link rel="apple-touch-icon" sizes="76x76" href="../material-dashboard-master/assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="../material-dashboard-master/assets/img/favicon.png">
+    <link rel="icon" type="image/png" href="../material-dashboard-master/assests/img/favicon.png">
     <!-- bootstrap css -->
-    <link rel="stylesheet" href="../material-dashboard-master/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
     <!-- style css -->
-    <link rel="stylesheet" href="../material-dashboard-master/css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <!-- Responsive-->
-    <link rel="stylesheet" href="../material-dashboard-master/css/responsive.css">
+    <link rel="stylesheet" href="../css/responsive.css">
     <!-- fevicon -->
-    <link rel="icon" href="../material-dashboard-master/images/fevicon.png" type="image/gif" />
+    <link rel="icon" href="../material-dashboard-master/assests/img/favicon.png" type="image/gif" />
     <!-- Scrollbar Custom CSS -->
-    <link rel="stylesheet" href="../material-dashboard-master/css/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="../css/jquery.mCustomScrollbar.min.css">
     <!-- Tweaks for older IEs-->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -197,19 +197,7 @@
                         <span class="nav-link-text ms-1">Sell</span>
                     </a>
                 </li>
-
-
-
-
-
             </ul>
-        </div>
-
-        <div class="sidenav-footer position-absolute w-100 bottom-0 ">
-            <div class="mx-3">
-                <a class="btn bg-gradient-primary mt-4 w-100" href="https://www.creative-tim.com/product/material-dashboard-pro?ref=sidebarfree" type="button">Upgrade to pro</a>
-            </div>
-
         </div>
 
     </aside>
@@ -238,11 +226,9 @@
 
                     </div>
                     <ul class="navbar-nav  justify-content-end">
+
                         <li class="nav-item d-flex align-items-center">
-                            <a class="btn btn-outline-primary btn-sm mb-0 me-3" target="_blank" href="https://www.creative-tim.com/builder/material?ref=navbar-dashboard">Online Builder</a>
-                        </li>
-                        <li class="nav-item d-flex align-items-center">
-                            <a href="../material-dashboard-master/pages/sign-in.html" class="nav-link text-body font-weight-bold px-0">
+                            <a href="/Account/Login" class="nav-link text-body font-weight-bold px-0">
                                 <i class="fa fa-user me-sm-1"></i>
 
                                 <span class="d-sm-inline d-none">Sign In</span>
@@ -334,45 +320,6 @@
 
 
         @RenderBody()
-
-
-
-
-        <footer class="footer py-4  ">
-            <div class="container-fluid">
-                <div class="row align-items-center justify-content-lg-between">
-                    <div class="col-lg-6 mb-lg-0 mb-4">
-                        <div class="copyright text-center text-sm text-muted text-lg-start">
-                            ©
-                            <script>
-                                document.write(new Date().getFullYear())
-                            </script>,
-                            made with <i class="fa fa-heart"></i> by
-                            <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Creative Tim</a>
-                            for a better web.
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-                            <li class="nav-item">
-                                <a href="https://www.creative-tim.com" class="nav-link text-muted" target="_blank">Creative Tim</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="https://www.creative-tim.com/presentation" class="nav-link text-muted" target="_blank">About Us</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="https://www.creative-tim.com/blog" class="nav-link text-muted" target="_blank">Blog</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-muted" target="_blank">License</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </footer>
-
-        </div>
 
 
     </main>
@@ -486,7 +433,7 @@
 
     <div class="copyright">
         <div class="container">
-            <p>Copyright 2022 All Right Reserved By Hyatt & McCormick Design Studios</a></p>
+            <p>Copyright 2022 All Rights Reserved By Hyatt & McCormick Design Studios</a></p>
         </div>
     </div>
 
@@ -508,8 +455,12 @@
     <script src="../material-dashboard-master/assets/js/core/bootstrap.min.js"></script>
     <script src="../material-dashboard-master/assets/js/plugins/perfect-scrollbar.min.js"></script>
     <script src="../material-dashboard-master/assets/js/plugins/smooth-scrollbar.min.js"></script>
+    <script src="../material-dashboard-master/assets/js/plugins/Chart.extension.js"></script>
+    <script src="../material-dashboard-master/assets/js/plugins/chartjs.min.js"></script>
+    <script src="../material-dashboard-master/assets/js/plugins/world.js"></script>
+
     <script>
-    var win = navigator.platform.indexOf('Win') > -1;
+        var win = navigator.platform.indexOf('Win') > -1;
         if (win && document.querySelector('#sidenav-scrollbar')) {
             var options = {
                 damping: '0.5'

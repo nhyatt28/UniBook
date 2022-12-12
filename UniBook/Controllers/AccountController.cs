@@ -58,7 +58,7 @@ namespace UniBook.Controllers
                 {
                     var claim = new List<Claim> {
 
-                        new Claim(ClaimTypes.Email, searchStudent.Email),
+                        new Claim(ClaimTypes.Role, searchStudent.Email),
                         new Claim(ClaimTypes.Hash, searchStudent.Password),
                         new Claim(ClaimTypes.Name, searchStudent.Fname + " " + searchStudent.LName),
 
