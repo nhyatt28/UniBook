@@ -158,28 +158,18 @@ namespace UniBook.Controllers
 
         [Authorize]
 
-        [HttpGet]
+       // [HttpGet]
         public IActionResult Sell(string BookID)
         {
             DemoContext demoContext = new DemoContext();
             Textbook searchTxtBook = new Textbook();
-
-
-
-            if (!string.IsNullOrEmpty(BookID))
-            {
-                searchTxtBook = demoContext.Textbooks.Where(x => x.BookID.ToString() == BookID).FirstOrDefault();
-            }
-            if (searchTxtBook == null)
-            {
-                ViewData["ErrorMessage"] = new List<string> { "Textbook ID not found." };
+               
                 searchTxtBook = new Textbook();
-            }
-
+            
             return View(searchTxtBook);
         }
 
-        [Authorize]
+       // [Authorize]
 
         [HttpPost]
         public async Task<ActionResult> Sell(Microsoft.AspNetCore.Http.IFormCollection fromColl)
@@ -192,63 +182,58 @@ namespace UniBook.Controllers
             string Publisher = fromColl["Publisher"];
             string Author = fromColl["Author"];
             string Edition = fromColl["Edition"];
-            string Condition = fromColl["LName"];
+            string Condition = fromColl["Condition"];
             string Price = fromColl["Price"];
             string AddButton = fromColl["AddButton"];
-            string UpdateButton = fromColl["UpdateButton"];
-            string DeleteButton = fromColl["DeleteButton"];
             Textbook searchTxtBook = new Textbook();
 
 
-            if (string.IsNullOrEmpty(BookID))
-            {
-                ViewData["ErrorMessage"] = new List<string> { "please enter first name" };
-            }
-            else
+            
              if (string.IsNullOrEmpty(ISBN))
             {
-                ViewData["ErrorMessage"] = new List<string> { "please enter last name" };
+                ViewData["ErrorMessage"] = new List<string> { "please enter the ISBN#." };
             }
             else
              if (string.IsNullOrEmpty(Title))
             {
-                ViewData["ErrorMessage"] = new List<string> { "please enter address" };
+                ViewData["ErrorMessage"] = new List<string> { "please enter the Title." };
             }
             else
              if (string.IsNullOrEmpty(Description))
             {
-                ViewData["ErrorMessage"] = new List<string> { "please enter phone number" };
+                ViewData["ErrorMessage"] = new List<string> { "please enter the Description." };
             }
             else
              if (string.IsNullOrEmpty(Publisher))
             {
-                ViewData["ErrorMessage"] = new List<string> { "please enter phone number" };
+                ViewData["ErrorMessage"] = new List<string> { "please enter the Publisher." };
             }
             else
              if (string.IsNullOrEmpty(Author))
             {
-                ViewData["ErrorMessage"] = new List<string> { "please enter phone number" };
+                ViewData["ErrorMessage"] = new List<string> { "please enter the Author." };
             }
             else
              if (string.IsNullOrEmpty(Edition))
             {
-                ViewData["ErrorMessage"] = new List<string> { "please enter phone number" };
+                ViewData["ErrorMessage"] = new List<string> { "please enter the Edition." };
             }
             else
              if (string.IsNullOrEmpty(Condition))
             {
-                ViewData["ErrorMessage"] = new List<string> { "please enter phone number" };
+                ViewData["ErrorMessage"] = new List<string> { "please enter the Condition." };
             }
             else
              if (string.IsNullOrEmpty(Price))
             {
-                ViewData["ErrorMessage"] = new List<string> { "please enter phone number" };
+                ViewData["ErrorMessage"] = new List<string> { "please enter the Price." };
             }
             else
             {
                 searchTxtBook = new Textbook();
 
-                searchTxtBook.BookID = long.Parse(BookID);
+                searchTxtBook.BookID = 1;
+                //searchTxtBook.BookID = long.Parse(BookID);
                 searchTxtBook.ISBN = int.Parse(ISBN);
                 searchTxtBook.Title = Title;
                 searchTxtBook.Description = Description;
@@ -262,25 +247,17 @@ namespace UniBook.Controllers
                 {
                     AddTxtBook(searchTxtBook);
                 }
-                else
-                if (!string.IsNullOrEmpty(UpdateButton))
-                {
-                    UpdateTxtBook(searchTxtBook);
-                }
-                else
-                if (!string.IsNullOrEmpty(DeleteButton))
-                {
-                    DeleteTxtBook(searchTxtBook);
-                }
             }
             return await Task.FromResult(View(searchTxtBook));
         }
 
         public Textbook AddTxtBook(Textbook txtBook)
         {
-
-            txtBook.BookID = 0;
+           
             DemoContext demoContext = new DemoContext();
+            Textbook book = demoContext.Textbooks.OrderBy(s => s.BookID).LastOrDefault();
+            txtBook.BookID = book.BookID + 1;
+
             demoContext.Textbooks.Add(txtBook);
             demoContext.SaveChanges();
             ViewData["SuccessMessage"] = new List<string> { "Textbook added successfully" };
@@ -305,14 +282,148 @@ namespace UniBook.Controllers
         }
 
 
+      
         [HttpGet]
-        public IActionResult Buy()
+        public IActionResult Buy(Microsoft.AspNetCore.Http.IFormCollection fromColl)
+        {
+            DemoContext demoContext = new DemoContext();
+            List<Textbook> searchbook = new List<Textbook>();
+
+            string BookID = fromColl["BookID"];
+            string ISBN = fromColl["ISBN"];
+            string Title = fromColl["Title"];
+            string Description = fromColl["Description"];
+            string Publisher = fromColl["Publisher"];
+            string Author = fromColl["Author"];
+            string Edition = fromColl["Edition"];
+            string Condition = fromColl["LName"];
+            string Price = fromColl["Price"];
+
+            searchbook = demoContext.Textbooks.ToList();
+
+            return View(searchbook);
+        }
+
+
+
+        [Authorize]
+        [HttpGet]
+        public IActionResult UpdateBook(string BookID)
+        {
+            DemoContext demoContext = new DemoContext();
+            Textbook searchbook = new Textbook();
+
+            if (!string.IsNullOrEmpty(BookID))
+            {
+                searchbook = demoContext.Textbooks.Where(x => x.BookID.ToString() == BookID).FirstOrDefault();
+            }
+            if (searchbook == null)
+            {
+                ViewData["ErrorMessage"] = new List<string> { "customer id not found" };
+                searchbook = new Textbook();
+            }
+
+            return View(searchbook);
+        }
+       
+        [Authorize]
+        [HttpPost]
+        public async Task<ActionResult> UpdateBook(Microsoft.AspNetCore.Http.IFormCollection fromColl)
+        {
+
+            string BookID = fromColl["BookID"];
+            string ISBN = fromColl["ISBN"];
+            string Title = fromColl["Title"];
+            string Description = fromColl["Description"];
+            string Publisher = fromColl["Publisher"];
+            string Author = fromColl["Author"];
+            string Edition = fromColl["Edition"];
+            string Condition = fromColl["Condition"];
+            string Price = fromColl["Price"];
+           
+            string UpdateButton = fromColl["UpdateButton"];
+            string DeleteButton = fromColl["DeleteButton"];
+            Textbook searchTxtBook = new Textbook();
+
+
+
+            if (string.IsNullOrEmpty(ISBN))
+            {
+                ViewData["ErrorMessage"] = new List<string> { "please enter the ISBN#." };
+            }
+            else
+            if (string.IsNullOrEmpty(Title))
+            {
+                ViewData["ErrorMessage"] = new List<string> { "please enter the Title." };
+            }
+            else
+            if (string.IsNullOrEmpty(Description))
+            {
+                ViewData["ErrorMessage"] = new List<string> { "please enter the Description." };
+            }
+            else
+            if (string.IsNullOrEmpty(Publisher))
+            {
+                ViewData["ErrorMessage"] = new List<string> { "please enter the Publisher." };
+            }
+            else
+            if (string.IsNullOrEmpty(Author))
+            {
+                ViewData["ErrorMessage"] = new List<string> { "please enter the Author." };
+            }
+            else
+            if (string.IsNullOrEmpty(Edition))
+            {
+                ViewData["ErrorMessage"] = new List<string> { "please enter the Edition." };
+            }
+            else
+            if (string.IsNullOrEmpty(Condition))
+            {
+                ViewData["ErrorMessage"] = new List<string> { "please enter the Condition." };
+            }
+            else
+            if (string.IsNullOrEmpty(Price))
+            {
+                ViewData["ErrorMessage"] = new List<string> { "please enter the Price." };
+            }
+            else
+            {
+                searchTxtBook = new Textbook();
+
+                
+                searchTxtBook.BookID = long.Parse(BookID);
+                searchTxtBook.ISBN = int.Parse(ISBN);
+                searchTxtBook.Title = Title;
+                searchTxtBook.Description = Description;
+                searchTxtBook.Publisher = Publisher;
+                searchTxtBook.Author = Author;
+                searchTxtBook.Edition = short.Parse(Edition);
+                searchTxtBook.Condition = Condition;
+                searchTxtBook.Price = int.Parse(Price);
+
+                if (!string.IsNullOrEmpty(UpdateButton))
+                {
+                    UpdateTxtBook(searchTxtBook);
+                }
+                else
+                if (!string.IsNullOrEmpty(DeleteButton))
+                {
+                    DeleteTxtBook(searchTxtBook);
+                }
+            }
+            return await Task.FromResult(View(searchTxtBook));
+        }
+
+        [Authorize]
+        [HttpGet]
+        public IActionResult Update()
         {
             return View();
         }
 
+        [Authorize]
         [HttpPost]
-        public async Task<ActionResult> Buy(Microsoft.AspNetCore.Http.IFormCollection fromColl)
+        public async Task<ActionResult> Update(Microsoft.AspNetCore.Http.IFormCollection fromColl)
         {
 
             string BookID = fromColl["BookID"];
@@ -327,6 +438,7 @@ namespace UniBook.Controllers
 
             DemoContext demoContext = new DemoContext();
             List<Textbook> searchbook = new List<Textbook>();
+
 
             if (!string.IsNullOrEmpty(BookID))
             {
@@ -377,8 +489,9 @@ namespace UniBook.Controllers
                 ViewData["ErrorMessage"] = new List<string> { "showing the list of all textbooks, no search criteria was selected" };
                 searchbook = demoContext.Textbooks.ToList();
             }
+
             return await Task.FromResult(View(searchbook));
         }
-
     }
+
 }

@@ -1,18 +1,55 @@
-﻿/*
+﻿#center {
+    width: 80%;
+    height: 70px;
+    font-size: 1.4vw;
+    margin-left: 6vw;
+    margin-bottom: 10%;
+    text-align: center;
+}
 
-     Search Form Styling:
+.heading3 {
+    color: greenyellow;
+    font-size: 3.5vw;
+    text-shadow: -1px 1px 2px #000, 1px 1px 2px #000, 1px -1px 0 #000, -1px -1px 0 #000;
+    transform: translate(30vw, 0vh);
+    background-color: rgba(255,255,255,0.86);
+    width: 38%;
+    padding: 1%;
+    padding-left: 1.8%;
+    border-radius: 20px;
+    margin-bottom: 3%;
+    text-align: center
+}
 
+.buy-header {
+    background-color: forestgreen;
+    align-content: center;
+    padding-right: 20px;
+    width: 100%;
+    padding-left: 40%
+}
 
- */
+.buy-table {
+    display: flex;
+    justify-content: center;
+    text-align: left;
+    margin-top: 1%;
+    margin-bottom: 1.5%;
+    width: 100%;
+    height: 100%;
+    padding: 1%;
+    background-color: rgba(253,253,150,1);
+    border-style: inset;
+    border-color: dodgerblue;
+    border-width: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #333333;
+}
 
-
-
-
-
-
-
-
-
-
-
-
+.title-styling {
+    padding: 1%;
+    padding-right: 1%;
+    width: 0%;
+    color: white;
+    text-shadow: -1px 1px 1px #000, 1px 1px 1px #000, 1px -1px 0 #000, -1px -1px 0 #000;
+}

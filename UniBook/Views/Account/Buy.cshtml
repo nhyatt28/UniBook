@@ -3,301 +3,58 @@
 @{ Layout = "~/Views/Shared/DashboardLayout.cshtml";
 
 }
+<link href="../css/searchForm.css" rel="stylesheet" />
 
 <section>
+    <div class="buy-header">
+        <table>
+            <tr>
+                <td id="center"></td>
+                <h for="StudentProfile" class="heading3"><b>Book Catalog</b></h></td>
 
-    <div>
-        @if (ViewData["ErrorMessage"] != null)
-        {
-            List<string>
-                errorList = ViewData["ErrorMessage"] as List<string>
-                    ;
-            if (errorList.Count() > 0)
-            {
-                <div class="alert alert-danger" role="alert" style="width:100%;">
-                    <ul>
-                        @foreach (var currentError in errorList)
-                        {
-                            <li>@currentError</li>
-                        }
-                    </ul>
-                </div>
-            }
-        }
-        @if (ViewData["SuccessMessage"] != null)
-        {
-            List<string>
-                successMessage = ViewData["SuccessMessage"] as List<string>
-                    ;
-            if (successMessage.Count() > 0)
-            {
-                <div class="alert alert-success" role="alert" style="width:100%;">
-                    <ul>
-                        @foreach (var msg in successMessage)
-                        {
-                            <li>@msg</li>
-                        }
-                    </ul>
-                </div>
-            }
-        }
-
-        <form class="student-profile-form" id="SearchForm" method="post" action="" novalidate="novalidate">
-
-
-            <div class="center">
-
-                <div class="student">
-
-                    <div class="form-text">
-                        <label for="StudentProfile" class="heading3"><b>Search Textbooks:</b></label>
-                    </div>
-
-                    <div class="row">
-
-                        <div class="col-xl-6">
-
-                            <label for="StudentID" class="col-form-label-lg"><b>TextbookID:</b></label>
-                            <input type="text" class="form-control" name="BookID" id="BookID" placeholder="Search TextbookID" maxlength="25">
-
-                        </div>
-
-                        <div class="col-xl-6">
-
-                            <label for="StudentID" class="col-form-label-lg"><b>ISBN #:</b></label>
-                            <input type="text" class="form-control" name="ISBN" id="ISBN" placeholder="Search ISBN #" maxlength="25">
-
-                        </div>
-
-                        <div class="col-xl-6">
-
-                            <label for="StudentID" class="col-form-label-lg"><b>Title:</b></label>
-                            <input type="text" class="form-control" name="Title" id="Title" placeholder="Search Last Name" maxlength="25">
-
-                        </div>
-
-                        <div class="col-xl-6">
-
-                            <label for="StudentID" class="col-form-label-lg"><b>Description:</b></label>
-                            <input type="text" class="form-control" name="Description" id="Description" placeholder="Search Description" maxlength="25">
-
-                        </div>
-
-                        <div class="col-xl-6">
-
-                            <label for="StudentID" class="col-form-label-lg"><b>Publisher:</b></label>
-                            <input type="text" class="form-control" name="Publisher" id="Publisher" placeholder="Search Publisher" maxlength="25">
-
-                        </div>
-
-                        <div class="col-xl-6">
-                            <label for="StudentID" class="col-form-label-lg"><b>Author:</b></label>
-                            <input type="text" class="form-control" name="Author" id="Author" placeholder="Search Author" maxlength="25">
-
-                        </div>
-
-                        <div class="col-xl-6">
-
-                            <label for="StudentID" class="col-form-label-lg"><b>Edition:</b></label>
-                            <input type="text" class="form-control" name="Edition" id="Edition" placeholder="Search Edition" maxlength="25">
-
-                        </div>
-
-
-                        <div class="col-xl-6">
-                            <label for="StudentID" class="col-form-label-lg"><b>Condition:</b></label>
-                            <input type="text" class="form-control" name="Condition" id="Condition" placeholder="Search Condition" maxlength="25">
-
-                        </div>
-
-                        <div class="col-xl-12">
-
-                            <label for="StudentID" class="col-form-label-lg"><b>Price:</b></label>
-                            <input type="text" class="form-control" name="Price" id="Price" placeholder="Search Price" maxlength="25">
-
-                        </div>
-
-
-                    </div>
-
-                    <div class="btn-padding">
-
-                        <button type="submit" class="btn btn-success btn-lg" id="SearchButton" name="SearchButton" value="SearchButton">Search Book List</button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </form>
-
-
-
-        <div class="search-results">
-
-            <div class="search-results-header">
-
-                <label for="StudentProfile" class="heading2"><b>Search Results:</b></label>
-
-            </div>
-
-            @if (Model == null || Model.Count() == 0)
-            {
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="position-relative form-group">
-                            <div class="reposition">
-
-                                <p>No result match search criteria</p>
-
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            }
-            else
-            {
-                <div class="box-body table-responsive no-padding">
-                    <table class="table table-hover">
-                        <tr>
-                            <th>TextookID</th>
-                            <th>ISBN#</th>
-                            <th>Title</th>
-                            <th>Description</th>
-                            <th>Author</th>
-                            <th>Publisher</th>
-                            <th>Edition</th>
-                            <th>Condition</th>
-                            <th>Price</th>
-                        </tr>
-                        @foreach (var textbook in Model)
-                        {
-                            <tr>
-                                <td>@textbook.BookID</td>
-                                <td>@textbook.ISBN</td>
-                                <td>@textbook.Title</td>
-                                <td>@textbook.Description</td>
-                                <td>@textbook.Author </td>
-                                <td>@textbook.Publisher</td>
-                                <td>@textbook.Edition</td>
-                                <td>@textbook.Condition</td>
-                                <td>@textbook.Price </td>
-                                <td>
-                                    <a href="StudentProfile?ID=@textbook.BookID" class="btn btn-block btn-warning btn-sm">View Product</a>
-                                </td>
-                            </tr>
-                        }
-                    </table>
-                </div>
-            }
-
-
-        </div>
-
-
+                <td id="center"><a href="/Library/Search"><img src="../images/search_icon.png" alt="#" /></a></td>
+            </tr>
+        </table>
     </div>
+
+
+    <div class="buy-table">
+        <table>
+            <tr class="title-styling">
+                <th>TextookID</th>
+                <th>ISBN#</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Author</th>
+                <th>Publisher</th>
+                <th>Edition</th>
+                <th>Condition</th>
+                <th>Price</th>
+            </tr>
+            @foreach (var textbook in Model)
+            {
+                <tr>
+                    <td>@textbook.BookID</td>
+                    <td>@textbook.ISBN</td>
+                    <td>@textbook.Title</td>
+                    <td>@textbook.Description</td>
+                    <td>@textbook.Author</td>
+                    <td>@textbook.Publisher</td>
+                    <td>@textbook.Edition</td>
+                    <td>@textbook.Condition</td>
+                    <td>@textbook.Price</td>
+                    <td>
+                        <a href="../Library/Purchase?BookID=@textbook.BookID" class="btn btn-block btn-warning btn-sm">Buy Textbook</a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+
+
+
 </section>
 
-<section>
-
-    <div>
-        @if (ViewData["ErrorMessage"] != null)
-        {
-            List<string>
-                errorList = ViewData["ErrorMessage"] as List<string>
-                    ;
-            if (errorList.Count() > 0)
-            {
-                <div class="alert alert-danger" role="alert" style="width:100%;">
-                    <ul>
-                        @foreach (var currentError in errorList)
-                        {
-                            <li>@currentError</li>
-                        }
-                    </ul>
-                </div>
-            }
-        }
-        @if (ViewData["SuccessMessage"] != null)
-        {
-            List<string>
-                successMessage = ViewData["SuccessMessage"] as List<string>
-                    ;
-            if (successMessage.Count() > 0)
-            {
-                <div class="alert alert-success" role="alert" style="width:100%;">
-                    <ul>
-                        @foreach (var msg in successMessage)
-                        {
-                            <li>@msg</li>
-                        }
-                    </ul>
-                </div>
-            }
-        }
-
-    </div>
-</section>
-
-<hr class="horizontal dark my-1">
-<div class="card-body pt-sm-3 pt-0">
-    <!-- Sidebar Backgrounds -->
-    <div>
-        <h6 class="mb-0">Sidebar Colors</h6>
-    </div>
-    <a href="javascript:void(0)" class="switch-trigger background-color">
-        <div class="badge-colors my-2 text-start">
-            <span class="badge filter bg-gradient-primary active" data-color="primary" onclick="sidebarColor(this)"></span>
-            <span class="badge filter bg-gradient-dark" data-color="dark" onclick="sidebarColor(this)"></span>
-            <span class="badge filter bg-gradient-info" data-color="info" onclick="sidebarColor(this)"></span>
-            <span class="badge filter bg-gradient-success" data-color="success" onclick="sidebarColor(this)"></span>
-            <span class="badge filter bg-gradient-warning" data-color="warning" onclick="sidebarColor(this)"></span>
-            <span class="badge filter bg-gradient-danger" data-color="danger" onclick="sidebarColor(this)"></span>
-        </div>
-    </a>
-    <!-- Sidenav Type -->
-    <div class="mt-3">
-        <h6 class="mb-0">Sidenav Type</h6>
-        <p class="text-sm">Choose between 2 different sidenav types.</p>
-    </div>
-    <div class="d-flex">
-        <button class="btn bg-gradient-dark px-3 mb-2 active" data-class="bg-gradient-dark" onclick="sidebarType(this)">Dark</button>
-        <button class="btn bg-gradient-dark px-3 mb-2 ms-2" data-class="bg-transparent" onclick="sidebarType(this)">Transparent</button>
-        <button class="btn bg-gradient-dark px-3 mb-2 ms-2" data-class="bg-white" onclick="sidebarType(this)">White</button>
-    </div>
-    <p class="text-sm d-xl-none d-block mt-2">You can change the sidenav type just on desktop view.</p>
-    <!-- Navbar Fixed -->
-    <div class="mt-3 d-flex">
-        <h6 class="mb-0">Navbar Fixed</h6>
-        <div class="form-check form-switch ps-0 ms-auto my-auto">
-            <input class="form-check-input mt-1 ms-auto" type="checkbox" id="navbarFixed" onclick="navbarFixed(this)">
-        </div>
-    </div>
-    <hr class="horizontal dark my-3">
-    <div class="mt-2 d-flex">
-        <h6 class="mb-0">Light / Dark</h6>
-        <div class="form-check form-switch ps-0 ms-auto my-auto">
-            <input class="form-check-input mt-1 ms-auto" type="checkbox" id="dark-version" onclick="darkMode(this)">
-        </div>
-    </div>
-    <hr class="horizontal dark my-sm-4">
-    <a class="btn bg-gradient-info w-100" href="https://www.creative-tim.com/product/material-dashboard-pro">Free Download</a>
-    <a class="btn btn-outline-dark w-100" href="https://www.creative-tim.com/learning-lab/bootstrap/overview/material-dashboard">View documentation</a>
-    <div class="w-100 text-center">
-        <a class="github-button" href="https://github.com/creativetimofficial/material-dashboard" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star creativetimofficial/material-dashboard on GitHub">Star</a>
-        <h6 class="mt-3">Thank you for sharing!</h6>
-        <a href="https://twitter.com/intent/tweet?text=Check%20Material%20UI%20Dashboard%20made%20by%20%40CreativeTim%20%23webdesign%20%23dashboard%20%23bootstrap5&amp;url=https%3A%2F%2Fwww.creative-tim.com%2Fproduct%2Fsoft-ui-dashboard" class="btn btn-dark mb-0 me-2" target="_blank">
-            <i class="fab fa-twitter me-1" aria-hidden="true"></i> Tweet
-        </a>
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.creative-tim.com/product/material-dashboard" class="btn btn-dark mb-0 me-2" target="_blank">
-            <i class="fab fa-facebook-square me-1" aria-hidden="true"></i> Share
-        </a>
-    </div>
-</div>
-        </div>
-    </div>
 <!--   Core JS Files   -->
 <script src="../material-dashboard-master/assets/js/core/popper.min.js"></script>
 <script src="../material-dashboard-master/assets/js/core/bootstrap.min.js"></script>

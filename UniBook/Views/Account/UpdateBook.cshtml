@@ -1,0 +1,156 @@
+﻿@model UniBook.Models.Textbook
+
+@{ Layout = "~/Views/Shared/DashboardLayout.cshtml";
+}
+
+
+    <section class="content">
+        <div class="row">
+
+            
+
+
+
+
+            <form id="SearchForm" method="post" novalidate="novalidate">
+                <div class="">
+                    <!-- general form elements -->
+                    <div class="box box-danger">
+                        <div class="box-header">
+                            <h3 class="box-title">Update Textbook</h3>
+                        </div>
+                        <div class="box-body">
+                            @if (ViewData["ErrorMessage"] != null)
+                            {
+                                List<string> errorList = ViewData["ErrorMessage"] as List<string>;
+                                if (errorList.Count() > 0)
+                                {
+                                    <div class="alert alert-danger" role="alert" style="width:100%;">
+                                        <ul>
+                                            @foreach (var currentError in errorList)
+                                            {
+                                                <li>@currentError</li>
+                                            }
+                                        </ul>
+                                    </div>
+                                }
+                            }
+                            @if (ViewData["SuccessMessage"] != null)
+                            {
+                                List<string> successMessage = ViewData["SuccessMessage"] as List<string>;
+                                if (successMessage.Count() > 0)
+                                {
+                                    <div class="alert alert-success" role="alert" style="width:100%;">
+                                        <ul>
+                                            @foreach (var msg in successMessage)
+                                            {
+                                                <li>@msg</li>
+                                            }
+                                        </ul>
+                                    </div>
+                                }
+                            }
+                            <div class="row">
+                                <div class="">
+                                </div>
+                                <div class="">
+                                    <div class="">
+                                        <label for="signupFirstName">BookID</label>
+                                        <input name="BookID" id="BookID"
+                                               value="@Model.BookID" placeholder="Enter the BookID" type="number"
+                                               maxlength="25"
+                                               class="form-control">
+                                    </div>
+                                </div>
+                                <div class="">
+                                    <div class="">
+                                        <label for="signupFirstName">ISBN#</label>
+                                        <input name="ISBN" id="ISBN"
+                                               value="@Model.ISBN" placeholder="Enter the ISBN#" type="number"
+                                               maxlength="25"
+                                               class="form-control">
+                                    </div>
+                                </div>
+                                <div class="">
+                                    <div class="">
+
+                                        <label for="signupFirstName">Title</label>
+                                        <input name="Title" id="Title"
+                                               placeholder="Enter the title" type="text"
+                                               value="@Model.Title" maxlength="25"
+                                               class="form-control">
+
+                                    </div>
+                                </div>
+                                <div class="">
+                                    <div class="">
+                                        <label for="signupFirstName">Description</label>
+                                        <input name="Description" id="Description"
+                                               placeholder="Enter a description" type="text"
+                                               value="@Model.Description" maxlength="250"
+                                               class="form-control">
+                                    </div>
+                                </div>
+                                <div class="">
+                                    <div class="">
+                                        <label for="signupFirstName">Author</label>
+                                        <input name="Author" id="Author"
+                                               placeholder="Enter the author" type="text"
+                                               value="@Model.Author" maxlength="25"
+                                               class="form-control">
+                                    </div>
+                                </div>
+                                <div class="">
+                                    <div class="">
+                                        <label for="signupFirstName">Publisher</label>
+                                        <input name="Publisher" id="Publisher"
+                                               placeholder="Enter the publisher" type="text"
+                                               value="@Model.Publisher" maxlength="25"
+                                               class="form-control">
+                                    </div>
+                                </div>
+                                <div class="">
+                                    <div class="">
+                                        <label for="signupFirstName">Edition</label>
+                                        <input name="Edition" id="Edition"
+                                               placeholder="Enter the edition (volume) - please enter an int value, design team was lazy on this one" type="number"
+                                               value="@Model.Edition" maxlength="25"
+                                               class="form-control">
+
+                                    </div>
+                                </div>
+                                <div class="">
+                                    <div class="">
+                                        <label for="signupLastName">Condition</label>
+                                        <input name="Condition" id="Condition"
+                                               placeholder="Enter the condition" type="text"
+                                               value="@Model.Condition" maxlength="25"
+                                               class="form-control">
+                                    </div>
+                                </div>
+                                <div class="">
+                                    <div class="">
+                                        <label for="signupLastName">Price</label>
+                                        <input name="Price" id="Price"
+                                               value="@Model.Price" placeholder="Enter the price (whole $$ value, those who enter in decimal format will be loathed by the design team's OCD & you get what you get - thanks')"
+                                               type="number" maxlength="25"
+                                               class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-footer">
+                            <div class="text-center">
+
+                                <button type="submit" class="btn btn-warning btn-lg" id="SearchButton" name="UpdateButton" value="UpdateButton">Update</button>
+                                <button type="submit" class="btn btn-danger btn-lg" id="SearchButton" name="DeleteButton" value="DeleteButton">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+    </section>
+

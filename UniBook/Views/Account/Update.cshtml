@@ -85,7 +85,7 @@
             {
                 <div class="search-results">
 
-                    <table>
+                    <table style="width:100%;">
                         <tr class="heading2">
                             <th>TextookID</th>
                             <th>ISBN#</th>
@@ -96,7 +96,7 @@
                             <th>Edition</th>
                             <th>Condition</th>
                             <th>Price</th>
-                            <th>Buy Book</th>
+                            
                         </tr>
                         @foreach (var textbook in Model)
                         {
@@ -111,8 +111,8 @@
                                 <td>@textbook.Condition</td>
                                 <td>$@textbook.Price</td>
                                 <td>
-                                   
-                                    <a href="/Library/Purchase?BookID=@textbook.BookID" class="btn btn-block btn-warning btn-sm">Buy Book</a>
+
+                                    <a href="/Account/UpdateBook?BookID=@textbook.BookID" class="btn btn-block btn-warning btn-sm">Update Book</a>
                                 </td>
                             </tr>
                         }
